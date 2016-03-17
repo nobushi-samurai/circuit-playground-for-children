@@ -1,0 +1,36 @@
+@import "common";
+
+body {
+  font-family: "Hiragino Kaku Gothic ProN", Meiryo, Helvetica, Arial, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+.tray {
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: #a7ffeb;
+}
+.tray__circuit-tray {
+  position: relative;
+  padding: $unit_width;
+}
+.tray__circuit-tray .circuit {
+  position: relative;
+  visibility: hidden;
+}
+
+.circuit:hover {
+  filter: drop-shadow(0 3px 3px #808080);
+}
+
+#container {
+  position: relative;
+  width: $unit_width * $container_h_unit;
+  height: $unit_height * $container_v_unit;
+  background-color: #e3f2fd;
+}

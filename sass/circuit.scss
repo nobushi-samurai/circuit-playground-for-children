@@ -1,0 +1,90 @@
+@import "common";
+
+@mixin transition {
+  transition: transform 0.1s linear 0s;
+}
+
+.circuit {
+  position: absolute;
+}
+
+.cir-handle {
+  z-index: 100;
+}
+
+.or-circuit {
+  position: absolute;
+  width: $unit_width * 2;
+  height: $unit_height * 3;
+  .cir-handle {
+    position: absolute;
+    width: $unit_width * 2;
+    height: $unit_height * 1;
+    left: 0;
+    top: $unit_height * 1;
+    background-image: url("../img/or-body.png");
+    background-size: contain;
+  }
+  .cir-out {
+    position: absolute;
+    width: $unit_width * 2;
+    height: $unit_height * 1;
+    left: 0;
+    top: $unit_height * 0;
+    background-image: url("../img/or-out.png");
+    background-size: contain;
+    transform: translate(0, $unit_height * 1);
+    @include transition;
+  }
+  .cir-out.cir-on {
+    transform: translate(0, 0);
+  }
+  .cir-in1, .cir-in2 {
+    position: absolute;
+    width: $unit_width * 1;
+    height: $unit_height * 1;
+    top: $unit_height * 2;
+    background-image: url("../img/or-in.png");
+    background-size: contain;
+    transform: translate(0, 0);
+    @include transition;
+  }
+  .cir-in1.cir-on, .cir-in2.cir-on {
+    transform: translate(0, -($unit_height * 1));
+  }
+  .cir-in1 {
+    left: 0;
+  }
+  .cir-in2 {
+    left: $unit_width * 1;
+  }
+}
+
+.switch-circuit {
+  position: absolute;
+  width: $unit_width * 1;
+  height: $unit_height * 2;
+  .cir-handle {
+    position: absolute;
+    width: $unit_width * 1;
+    height: $unit_height * 1;
+    left: 0;
+    top: $unit_height * 1;
+    background-image: url("../img/switch-body.png");
+    background-size: contain;
+  }
+  .cir-out {
+    position: absolute;
+    width: $unit_width * 1;
+    height: $unit_height * 1;
+    left: 0;
+    top: $unit_height * 0;
+    background-image: url("../img/switch-out.png");
+    background-size: contain;
+    transform: translate(0, $unit_height * 1);
+    @include transition;
+  }
+  .cir-out.cir-on {
+    transform: translate(0, 0);
+  }
+}
