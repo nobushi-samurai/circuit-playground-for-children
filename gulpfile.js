@@ -51,8 +51,10 @@ gulp.task('js-compile', function () {
       .pipe(gulp.dest('js/unified/'));
 });
 
-gulp.task('default', ['sass', 'js-requirejs'], function () {
+gulp.task('watch', function () {
   gulp.watch(scss_files, ['sass']);
   gulp.watch(['js/**/*.js', '!js/unified/**/*.js'], ['js-requirejs']);
   gulp.watch(['js/unified/unified.js'], ['js-compile']);
 });
+
+gulp.task('default', ['sass', 'js-requirejs', 'js-compile', 'watch']);
